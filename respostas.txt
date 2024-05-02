@@ -1,0 +1,54 @@
+Lista de revisão 1
+1) alternativa a) F V F V V
+2) alternativa d) I, II, V.
+3) alternativa a) A cardinalidade é uma medida que indica o número máximo de vezes que um elemento pode aparecer em um conjunto.
+4) alternativa b) C B E A D
+5) alternativa c) O operador EXCEPT ou MINUS seleciona as linhas da primeira tabela que não pertencem à segunda.
+
+Lista de revisão 2
+
+1) alternativa d) C D E A B
+2) alternativa d) II, III, IV. 
+3) alternativa e) Sexta-feira.
+4) alternativa e) FFFV
+5) alternativa d) Cursores implícitos e explícitos são opostos, o primeiro é criado e gerenciado automaticamente pelo SGBD, já o explícito é responsabilidade do usuário abrir, executar a consulta SQL e fechar o curso. 
+
+Lista de revisão 1
+
+1) alternativa a) F V F V V
+2) alternativa d) Many-to-One, vários elementos de uma entidade podem se relacionar com um único elemento de outra entidade, enquanto em relacionamentos One-to-One, cada elemento de uma entidade se relaciona exclusivamente com um único elemento de outra entidade.
+3) alternativa c) III, V.
+4) alternativa d) F F F F V
+5) alternativa c) Swagger é uma ferramenta que possibilita o a visualização, interação e testes de uma API sem a necessidade de visualizar o código fonte.
+
+Lista de revisão 2
+
+1) alternativa c) É possível passar dados para componentes filhos em React.
+2) alternativa d) O useEffect permite a execução de efeitos colaterais, como buscar dados em uma API, atualizar o DOM e controlar temporizadores.
+3) alternativa d) II, III, IV.
+4) alternativa e) V F V V V
+5) alternativa c) O DTO é flexível, podendo ser exatamente igual à entidade, ou diferente, contendo mais ou menos atributos, contendo relacionamentos com outros DTO’s ou não.
+
+
+Pensar & Responder
+Analise cuidadosamente a modelagem lógica abaixo. Crie uma VIEW que retorne os dados de uma consulta com um único comando
+
+
+- Será criada a seguinte VIEW para retornar os dados da tabela médico, consulta e paciente:
+
+
+CREATE VIEW dados_consulta AS
+
+SELECT c.id_consulta, c.data, m.id_crm, m.nome as nome_medico, p.id_cpf, p.nome as nome_paciente, c.relatorio
+
+FROM consulta c
+
+JOIN medico m ON c.medico_crm = m.id_crm
+
+JOIN paciente p ON c.paciente_cpf = p.id_cpf;
+
+
+- Criada esta VIEW, podemos consultar os dados de consulta, médico e paciente usando apenas um comando:
+
+
+SELECT * FROM  dados_consulta;
